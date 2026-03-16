@@ -35,7 +35,7 @@ export const Dashboard: React.FC = () => {
   const fetchDatasets = async () => {
     if (!token) return;
     try {
-      const resp = await fetch("http://localhost:5000/api/datasets", {
+      const resp = await fetch(`${import.meta.env.VITE_API_URL}/api/datasets`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (resp.status === 401) {
@@ -63,7 +63,7 @@ export const Dashboard: React.FC = () => {
     formData.append("file", file);
 
     try {
-      const resp = await fetch("http://localhost:5000/api/datasets/upload", {
+      const resp = await fetch(`${import.meta.env.VITE_API_URL}/api/datasets/upload`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
         body: formData
