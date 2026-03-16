@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/Auth";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "../components/Button";
 import { Textfield } from "../components/Textfield";
 import { Card } from "../components/Card";
@@ -12,7 +12,6 @@ export const Login: React.FC = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
-  const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
