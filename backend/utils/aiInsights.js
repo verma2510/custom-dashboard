@@ -38,15 +38,12 @@ const generateInsights = async (kpis, columns) => {
 
       COLUMN_INFO:
       ${JSON.stringify(columns)}
-
-      COLUMN_STATS:
-      ${JSON.stringify(stats)}
     `;
 
     const response = await axios.post(
-      "https://api.deepseek.com/chat/completions",
+      "https://api.groq.com/openai/v1/chat/completions",
       {
-        model: "deepseek-chat",
+        model: "llama-3.1-8b-instant",
         messages: [{ role: "user", content: prompt }],
         temperature: 0.7,
       },
